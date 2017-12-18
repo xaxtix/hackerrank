@@ -10,7 +10,7 @@ import java.util.Stack;
 public class DecimalUtils {
 
     /**
-     * Раскладывает
+     * Раскладывает число на простые делители включая 1
      *
      * @param d
      * @return список делителей
