@@ -10,13 +10,34 @@ public class SequenceXOR {
     private static long sequenceXor(long l, long r) {
         long tmp = 0;
         long xor = 0;
-        long startIndex = r;
-        while ((startIndex - 7) % 4 != 0 && startIndex > 7) startIndex--;
-        if (startIndex < 7) startIndex = 0;
-        else tmp = ((startIndex - 7) / 4) % 2 == 0 ? 0 : 2;
-        for (long i = startIndex + 1; i <= r; i++) {
-            tmp ^= i;
-            if (i >= l) xor ^= tmp;
+        long lastIndex = r;
+        while ((lastIndex - 7) % 4 != 0 && lastIndex > 7) lastIndex--;
+
+        long firstIndex = l;
+        while ((lastIndex - 7) % 4 != 0 && lastIndex > 7) lastIndex--;
+
+        if (lastIndex < 7) lastIndex = 0;
+        if (firstIndex < 7) firstIndex = 0;
+        if (lastIndex == 0 || firstIndex == 0) {
+            for (long i = 0; i <= r; i++) {
+                tmp ^= i;
+                if(i >= l) xor ^= tmp;
+            }
+        } else {
+
+            for (long i = 0; i < 4; i++) {
+                tmp ^= firstIndex;
+                if (firstIndex >= l && firstIndex <= r) xor ^= tmp;
+                firstIndex++;
+            }
+
+
+            tmp = 0;
+            for (long i = 0; i < 4; i++) {
+                tmp ^= lastIndex;
+                if (lastIndex >= l && lastIndex <= r) xor ^= tmp;
+                lastIndex++;
+            }
         }
 
         return xor;
