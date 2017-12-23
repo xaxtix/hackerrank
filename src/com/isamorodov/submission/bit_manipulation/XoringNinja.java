@@ -17,12 +17,22 @@ public class XoringNinja {
                 arr[i] = in.nextInt();
             }
 
-            for(int i = n; i > 0; i--){
-                for (int j = 0; j < i; j++) {
-                    //arr
-
+            long len = 1L << n;
+            long sum = 0;
+            for (long i = 0; i < len; i++) {
+                long tmp = i;
+                int index = 0;
+                long xor = 0;
+                while (tmp > 0) {
+                    if (tmp % 2 == 1) xor ^= arr[index];
+                    tmp >>= 1;
+                    index++;
                 }
+
+                sum += xor;
             }
+
+            System.out.println(sum);
         }
     }
 
