@@ -7,6 +7,37 @@ import java.util.Scanner;
  */
 public class XoringNinja {
 
+    public static class XorableSet {
+        final int n;
+        final boolean[] b;
+        final int[] arr;
+        long sum = 0;
+
+        public XorableSet(int n,int[] arr) {
+            this.n = n;
+            this.arr = arr;
+            b = new boolean[n];
+        }
+
+        public void inc(){
+            int i = 0;
+            while (b[i]){
+                b[i] = false;
+                sum ^= arr[i];
+                i++;
+            }
+            b[i] = true;
+            sum ^= arr[i];
+
+            for(boolean f : b) System.out.print(f ? 1 : 0);
+
+            System.out.print(" " + sum);
+            System.out.println();
+        }
+
+
+    }
+
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int a = in.nextInt();
@@ -19,17 +50,11 @@ public class XoringNinja {
 
             long len = 1L << n;
             long sum = 0;
-            for (long i = 0; i < len; i++) {
-                long tmp = i;
-                int index = 0;
-                long xor = 0;
-                while (tmp > 0) {
-                    if (tmp % 2 == 1) xor ^= arr[index];
-                    tmp >>= 1;
-                    index++;
-                }
+            XorableSet set = new XorableSet(n,arr);
 
-                sum += xor;
+            for (long i = 1; i < len; i++) {
+                set.inc();
+                sum += set.sum;
             }
 
             System.out.println(sum);
