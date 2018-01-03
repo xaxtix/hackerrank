@@ -5,7 +5,7 @@ import java.util.*;
 /**
  * Created by xaxtix on 29.12.17.
  */
-public class ScherlokAndCost {
+public class SherlokAndCost {
 
     static int cost(int[] arr) {
         int n = arr.length;
