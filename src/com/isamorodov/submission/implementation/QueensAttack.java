@@ -1,4 +1,4 @@
-package com.isamorodov.implementation;
+package com.isamorodov.submission.implementation;
 
 import java.util.ArrayList;
 import java.util.List;

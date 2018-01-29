@@ -1,6 +1,8 @@
 package com.isamorodov.contents.hiring_contest;
 
-import java.util.*;
+import com.isamorodov.utils.collections.MultiHashSet;
+
+import java.util.Scanner;
 
 /**
  * Created by xaxtix on 26.01.18.
@@ -10,9 +12,9 @@ public class WinningLotteryTicket {
     static long winningLotteryTicket(String[] tickets, int n) {
         long count = 0;
         int all = n - 1;
-        HashMap<Integer, Long> map = new HashMap<>();
-        int[] compressedTickets = new int[n];
-        int size = 0;
+
+        MultiHashSet<Integer> set = new MultiHashSet<>();
+
         for (int i = 0; i < n; i++) {
             char[] chars = tickets[i].toCharArray();
             int compressed = 0;
@@ -26,16 +28,12 @@ public class WinningLotteryTicket {
                 all--;
                 continue;
             }
-            for (int j = 0; j < size; j++) {
-                if ((compressed | compressedTickets[j]) == 1023) count+= map.get(compressedTickets[j]);
+
+            for (Integer c : set.getSet()) {
+                if ((compressed | c) == 1023) count+= set.get(c);
             }
-            if (map.containsKey(compressed)) {
-                map.put(compressed, map.get(compressed) + 1L);
-            } else {
-                map.put(compressed, 1L);
-                compressedTickets[size] = compressed;
-                size++;
-            }
+
+            set.add(compressed);
         }
         return count;
 

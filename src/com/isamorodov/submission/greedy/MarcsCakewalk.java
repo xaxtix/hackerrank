@@ -1,7 +1,6 @@
-package com.isamorodov.greedy;
+package com.isamorodov.submission.greedy;
 
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.Scanner;
 
 /**

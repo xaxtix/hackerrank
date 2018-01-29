@@ -1,6 +1,5 @@
-package com.isamorodov.dynamic_programming;
+package com.isamorodov.submission.dynamic_programming;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
