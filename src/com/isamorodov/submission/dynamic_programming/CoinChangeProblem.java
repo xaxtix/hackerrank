@@ -1,4 +1,4 @@
-package com.isamorodov.dynamic_programming;
+package com.isamorodov.submission.dynamic_programming;
 
 import java.util.HashMap;
 import java.util.Map;
