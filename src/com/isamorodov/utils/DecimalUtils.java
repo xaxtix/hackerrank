@@ -15,7 +15,7 @@ public class DecimalUtils {
      * @param d
      * @return список делителей
      */
-    public List<Integer> getAllDividers(int d) {
+    public static List<Integer> getAllPrimaryDividers(int d) {
         List<Integer> list = new ArrayList<>();
 
         loop:
@@ -34,4 +34,22 @@ public class DecimalUtils {
 
         return list;
     }
+
+    /**
+     * Раскладывает число на делители включая 1
+     *
+     * @param d
+     * @return список делителей
+     */
+    public static List<Integer> getAllDividers(int d) {
+        List<Integer> list = new ArrayList<>();
+
+        int half = d >> 1;
+        for (int i = 1; i < half; i++) {
+            if (d % i == 0) list.add(i);
+        }
+
+        return list;
+    }
+
 }
