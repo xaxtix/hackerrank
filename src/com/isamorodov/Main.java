@@ -3,20 +3,12 @@ package com.isamorodov;
 public class Main {
 
     public static void main(String[] args) {
-
-
-
-
         int index = 100;
 
-        while (index > 0)
-        {
+        while (index > 0) {
             System.out.println(printAsBinary(index) + " " + index);
             index = index - (index & (-index));
         }
-
-
-
     }
 
     public static String printAsBinary(int i) {
