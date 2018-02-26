@@ -21,13 +21,13 @@ public class lol {
         return sum;
     }
 
-    // Updates a node in Binary Index Tree (BITree) at given index
+    // Updates a node in Binary Index Node (BITree) at given index
     // in BITree.  The given value 'val' is added to BITree[i] and
     // all of its ancestors in tree.
     static void updateBIT(int BITree[], int n, int index, int val) {
         // Traverse all ancestors and add 'val'
         while (index <= n) {
-            // Add 'val' to current node of BI Tree
+            // Add 'val' to current node of BI Node
             BITree[index] = BITree[index] + val;
 
             // Update index to that of parent in update View
