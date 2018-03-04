@@ -6,26 +6,24 @@ import java.util.*;
  * Created by xaxtix on 16.01.18.
  */
 public class InsertionSortAdvancedAnalysis {
+
+
     static int insertionSort(int[] arr) {
         int count = 0;
-        int max = Integer.MIN_VALUE;
-        TreeMap<Integer, Integer> map = new TreeMap<>();
-        for (int e : arr) {
-            if (e >= max) {
-                max = e;
-            }else {
-                Iterator<Integer> iterator = map.keySet().iterator();
+        int[] counts = new int[10000001];
 
-                while (iterator.hasNext()){
-                    int k = iterator.next();
-                    if(e > k){
+        TreeSet<Integer> set = new TreeSet<>();
 
-                        //count +=
-                    }
-                }
+        for (int i : arr) {
+            Set<Integer> subset = set.tailSet(i, false);
+            for (int k : subset) {
+                count += counts[k];
             }
 
-            map.put(e, map.getOrDefault(e, 0) + 1);
+            if (counts[i] == 0) {
+                set.add(i);
+            }
+            counts[i]++;
         }
 
         return count;
