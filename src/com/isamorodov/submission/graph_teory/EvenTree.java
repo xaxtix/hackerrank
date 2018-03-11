@@ -1,4 +1,4 @@
-package com.isamorodov.submission.graph;
+package com.isamorodov.submission.graph_teory;
 
 import org.junit.Test;
 

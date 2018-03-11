@@ -18,8 +18,6 @@ public class StringUtils {
             for (int k = 0; k <= i; k++)
                 if(Objects.equals(s.substring(0, k), s.substring(k,i - k + 1))) pi[i] = k;
 
-
-        Arrays.asList()
         return pi;
     }
 }
